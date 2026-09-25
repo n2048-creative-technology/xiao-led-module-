@@ -12151,6 +12151,7 @@
 		(layer "B.Cu")
 		(uuid "c239fcd9-f78f-4b81-98c7-9fb2b4b037fe")
 		(at 110.3185 110 180)
+		(attr through_hole exclude_from_pos_files dnp)
 		(property "Reference" "U1"
 			(at -0.275 10.275 0)
 			(unlocked yes)
@@ -12208,7 +12209,7 @@
 		(path "/0a0a733a-54d7-4c9e-8c63-6b69228bb07a")
 		(sheetname "/")
 		(sheetfile "xiao led module.kicad_sch")
-		(attr smd)
+		(attr smd through_hole exclude_from_pos_files dnp)
 		(fp_line
 			(start 12.051 3.991272)
 			(end 12.051 -4.004)
