@@ -85,6 +85,27 @@ All parts verified against the live JLCPCB Open Platform API (real-time stock/pr
   `--exclude-dnp` so U1 is correctly omitted from placement while
   everything else retains accurate position/rotation/side data
 
+### 3D view in KiCad
+
+- **D1-D50 (LEDs):** the `WS2812_2020` footprint carries a real,
+  present STEP model — renders correctly out of the box.
+- **J2 (connector):** the SMD JST-PH "SM4" footprint family has **no
+  3D model anywhere**, including KiCad's own upstream
+  `kicad-packages3D` repo — a known gap in the official library, not
+  something fixable from this repo. A through-hole JST-PH variant
+  (`S4B-PH-K`, LCSC C157926, 18,711 in stock) *does* have a working
+  model, but switching to it means a mechanical footprint change
+  (SMD → THT); left as SMD per current board design.
+- **U1 (XIAO module):** the footprint's bundled 3D models point at
+  `${AMZPATH}`, a third-party model pack (from whoever originally
+  authored this footprint) that isn't publicly distributed anywhere
+  findable. Seeed's own official OPL KiCad library ships the
+  *identical* footprint with the same broken reference. JLCPCB-side
+  alternatives (direct XIAO ESP32-C3 module SKUs C19189385 and
+  C18212168) are both essentially out of stock (0 and 1 units,
+  respectively) regardless, so U1 was staying DNP either way — the
+  missing 3D preview here is cosmetic only.
+
 ### Design Rule Check status
 
 `kicad-cli pcb drc` reports 12 violations (4 starved-thermal errors on
